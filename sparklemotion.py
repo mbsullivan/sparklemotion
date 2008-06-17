@@ -1,4 +1,4 @@
-import direct.directbase.DirectStart
+import direct.directbase.DirectStart, pyglobals
 from pandac.PandaModules import TextNode, ClockObject, Vec3
 from direct.gui.DirectGui import *
 from direct.gui.OnscreenText import OnscreenText
@@ -29,7 +29,7 @@ class World(DirectObject):
         for sensorNode in self.sensorNodes:
             sensorNode.reparentTo(render)
 
-        taskMgr.add(FobPointUpdateTask('/Users/mrevelle/src/sparklemotion/data/fob/2008_06_09/001.dat', 
+        taskMgr.add(FobPointUpdateTask(pyglobals.data_file, 
                                        self.sensorNodes), 
                     'FobPointUpdate')
         
